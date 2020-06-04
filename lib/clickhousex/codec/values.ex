@@ -106,10 +106,10 @@ defmodule Clickhousex.Codec.Values do
 
   defp escape(s) do
     s
-    |> String.replace("_", "\_")
-    |> String.replace("'", "\'")
-    |> String.replace("%", "\%")
-#    |> String.replace(~s("), ~s(\\"))
     |> String.replace("\\", "\\\\")
+    |> String.replace("_", ~S(\_))
+    |> String.replace("%", ~S(\%))
+    |> String.replace("'", ~S(\'))
+    |> String.replace(~s("), ~S(\"))
   end
 end
