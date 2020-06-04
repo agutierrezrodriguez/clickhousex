@@ -109,7 +109,7 @@ defmodule Clickhousex.Codec.Values do
     |> String.replace("_", "\_")
     |> String.replace("'", "\'")
     |> String.replace("%", "\%")
-    |> String.replace(~s("), ~s(\\"))
+#    |> String.replace(~s("), ~s(\\"))
     |> String.replace("\\", "\\\\")
   end
 end
