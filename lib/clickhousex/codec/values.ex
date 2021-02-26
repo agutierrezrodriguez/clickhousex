@@ -101,15 +101,10 @@ defmodule Clickhousex.Codec.Values do
   end
 
   defp encode_param(_query, param) do
-    "'" <> escape(param) <> "'"
+    "'#{escape(param)}'"
   end
 
   defp escape(s) do
-    s
-    |> String.replace("\\", "\\\\")
-    |> String.replace("_", ~S(\_))
-    |> String.replace("%", ~S(\%))
-    |> String.replace("'", ~S(\'))
-    |> String.replace(~s("), ~S(\"))
+    String.replace(s, "'", ~S(\'))
   end
 end
